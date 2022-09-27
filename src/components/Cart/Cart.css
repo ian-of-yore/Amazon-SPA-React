@@ -1,0 +1,36 @@
+.cart-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-buttons p {
+    margin-top: 9px;
+}
+
+.btn-clear-cart {
+    color: white;
+    width: 200px;
+    height: 45px;
+    font-size: 20px;
+    background: #FF3030;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-review-order {
+    margin-top: 15px;
+    color: white;
+    width: 200px;
+    height: 45px;
+    font-size: 20px;
+    background: #FF9900;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.fa-icons {
+    padding-left: 10px;
+}

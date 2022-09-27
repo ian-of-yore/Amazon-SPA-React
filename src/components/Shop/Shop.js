@@ -1,10 +1,9 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Product from '../Product/Product';
 import './Shop.css'
+import Cart from '../Cart/Cart';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -34,22 +33,7 @@ const Shop = () => {
                 }
             </div>
             <div className="cart-container">
-                <h2>Order Summary</h2>
-                <p>Selected Items: {cart.length} </p>
-                <p>Total Price: </p>
-                <p>Total Shipping Charge: </p>
-                <p>Tax: </p>
-                <h6>Grand Total: </h6>
-                <div className='cart-buttons'>
-                    <button className='btn-clear-cart'>
-                        <p>Clear Cart</p>
-                        <p className='fa-icons'><FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon></p>
-                    </button>
-                    <button className='btn-review-order'>
-                        <p>Review Order</p>
-                        <p className='fa-icons'><FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></p>
-                    </button>
-                </div>
+                <Cart cart={cart}></Cart>
             </div>
         </div>
     );
