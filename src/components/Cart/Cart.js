@@ -3,15 +3,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import './Cart.css'
 
-const Cart = (props) => {
+const Cart = ({ cart }) => {
+
+    let total = 0;
+    let shipping = 0;
+    for (let product of cart) {
+        total = total + product.price;
+        shipping = shipping + product.shipping;
+        console.log(product)
+    }
+    let tax = Math.ceil(parseInt((total * 0.1).toFixed(2)));
+    let grandTotal = total + shipping + tax;
+
     return (
         <div>
             <h2>Order Summary</h2>
-            <p>Selected Items: {props.cart.length} </p>
-            <p>Total Price: </p>
-            <p>Total Shipping Charge: </p>
-            <p>Tax: </p>
-            <h6>Grand Total: </h6>
+            <p>Selected Items: {cart.length} </p>
+            <p>Total Price: ${total}</p>
+            <p>Total Shipping Charge: ${shipping} </p>
+            <p>Tax: ${tax}</p>
+            <h6>Grand Total: ${grandTotal}</h6>
             <div className='cart-buttons'>
                 <button className='btn-clear-cart'>
                     <p>Clear Cart</p>

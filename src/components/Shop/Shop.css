@@ -13,9 +13,11 @@
 }
 
 .cart-container {
+    position: sticky;
+    top: 0;
     background-color: rgba(255, 153, 0, 0.3);
     padding-left: 23px;
-    height: 944px;
+    height: 750px;
 }
 
 .cart-container h2 {
