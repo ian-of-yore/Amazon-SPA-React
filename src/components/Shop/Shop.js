@@ -13,8 +13,8 @@ const Shop = () => {
             .then(data => setProducts(data))
     }, [])
 
-    const handleAddToCart = () => {
-        console.log("clicked")
+    const handleAddToCart = (product) => {
+        console.log(product);
     }
 
     return (
