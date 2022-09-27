@@ -1,13 +1,79 @@
 .shop-container {
-    margin-top: 120px;
     display: grid;
     grid-template-columns: 4fr 1fr;
 }
 
 .products-container {
+    margin-top: 120px;
     padding-left: 104px;
     padding-right: 84px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 45px;
+}
+
+.cart-container {
+    background-color: rgba(255, 153, 0, 0.3);
+    padding-left: 23px;
+    height: 944px;
+}
+
+.cart-container h2 {
+    text-align: left;
+    font-family: Lato;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 34px;
+}
+
+.cart-container {
+    margin-top: 0;
+}
+
+.cart-container h6 {
+    margin-top: 25px;
+    margin-bottom: 35px;
+    font-family: Lato;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0.0015em;
+    text-align: left;
+}
+
+.cart-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-buttons p {
+    margin-top: 9px;
+}
+
+.btn-clear-cart {
+    color: white;
+    width: 200px;
+    height: 45px;
+    font-size: 20px;
+    background: #FF3030;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-review-order {
+    margin-top: 15px;
+    color: white;
+    width: 200px;
+    height: 45px;
+    font-size: 20px;
+    background: #FF9900;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.fa-icons {
+    padding-left: 10px;
 }
