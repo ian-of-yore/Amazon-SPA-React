@@ -10,7 +10,6 @@ const Cart = ({ cart }) => {
     for (let product of cart) {
         total = total + product.price;
         shipping = shipping + product.shipping;
-        console.log(product)
     }
     let tax = Math.ceil(parseInt((total * 0.1).toFixed(2)));
     let grandTotal = total + shipping + tax;
