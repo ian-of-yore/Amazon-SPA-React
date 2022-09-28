@@ -10,12 +10,14 @@ const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
 
+    // Collecting product data from the provided products.json file
     useEffect(() => {
         fetch("products.json")
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
 
+    // Collecting storedCart data from the Local Storage and updating the cart
     useEffect(() => {
         const storedCart = getStoredCart();
         const savedCart = [];
