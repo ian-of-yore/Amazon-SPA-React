@@ -4,7 +4,8 @@
 }
 
 .products-container {
-    margin-top: 120px;
+    margin-top: 60px;
+    margin-bottom: 60px;
     padding-left: 104px;
     padding-right: 84px;
     display: grid;

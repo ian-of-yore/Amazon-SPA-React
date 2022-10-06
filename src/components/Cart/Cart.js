@@ -18,7 +18,7 @@ const Cart = ({ cart }) => {
     let grandTotal = total + shipping + tax;
 
     return (
-        <div>
+        <div className='mt-16 pl-6'>
             <h2>Order Summary</h2>
             <p>Quantity: {quantity} </p>
             <p>Total Price: ${total}</p>
