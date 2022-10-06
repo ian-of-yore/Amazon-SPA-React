@@ -5,17 +5,11 @@ import Product from '../Product/Product';
 import './Shop.css'
 import Cart from '../Cart/Cart';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
+import { useLoaderData } from 'react-router-dom';
 
 const Shop = () => {
-    const [products, setProducts] = useState([]);
+    const products = useLoaderData();
     const [cart, setCart] = useState([]);
-
-    // Collecting product data from the provided products.json file
-    useEffect(() => {
-        fetch("products.json")
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
 
     // Collecting storedCart data from the Local Storage and updating the cart
     useEffect(() => {
