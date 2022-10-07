@@ -5,7 +5,9 @@ import Product from '../Product/Product';
 import './Shop.css'
 import Cart from '../Cart/Cart';
 import { addToDb, deleteShoppingCart, getStoredCart } from '../../utilities/fakedb';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const Shop = () => {
     const products = useLoaderData();
@@ -60,7 +62,13 @@ const Shop = () => {
                 }
             </div>
             <div className="cart-container">
-                <Cart clearCart={clearCart} cart={cart}></Cart>
+                <Cart clearCart={clearCart} cart={cart}>
+                    <Link to='/orders'>
+                        <button className='btn-review-order'>
+                            <p>Review Order</p>
+                            <p className='fa-icons'><FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></p>
+                        </button></Link>
+                </Cart>
             </div>
         </div>
     );
