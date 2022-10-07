@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
@@ -25,7 +25,10 @@ const Orders = () => {
     return (
         <div className='shop-container grid grid-cols-4'>
             <div>
-                <p className='text-center text-4xl font-semibold text-gray-700 my-8'>You have selected <span className='text-orange-700'>{cart.length}</span> products</p>
+                {
+                    cart.length === 0 ? <p className='text-center text-4xl font-semibold text-gray-700 my-8'>You have no items in the Cart! Visit <span className='text-orange-700 underline'><Link to='/shop'>Shop</Link></span></p> : <p className='text-center text-4xl font-semibold text-gray-700 my-8'>You have selected <span className='text-orange-700'>{cart.length}</span> products</p>
+                }
+
                 {
                     cart.map(product => <ReviewItem
                         key={product.id}
@@ -33,6 +36,7 @@ const Orders = () => {
                         handleRemoveProduct={handleRemoveProduct}
                     ></ReviewItem>)
                 }
+
             </div>
             <div className="cart-container">
                 <Cart clearCart={clearCart} cart={cart}></Cart>
