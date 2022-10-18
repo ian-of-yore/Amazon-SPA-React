@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
 
@@ -39,7 +41,12 @@ const Orders = () => {
 
             </div>
             <div className="cart-container">
-                <Cart clearCart={clearCart} cart={cart}></Cart>
+                <Cart clearCart={clearCart} cart={cart}>
+                    <Link to='/shipment' className=' mt-4 flex justify-center items-center bg-red-600 text-white rounded-xl pb-3 mr-14 text-xl'>
+                        <p>Shipment</p>
+                        <p className='fa-icons'><FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></p>
+                    </Link>
+                </Cart>
             </div>
         </div>
     );

@@ -10,6 +10,7 @@ import Shipment from './components/Shipment/Shipment';
 import Shop from './components/Shop/Shop';
 import Main from './layout/Main';
 import { productsAndCartLoader } from './loaders/productsAndCartLoader';
+import PrivateRoute from './routes/PrivateRoute';
 
 
 function App() {
@@ -35,11 +36,11 @@ function App() {
         },
         {
           path: '/inventory',
-          element: <Inventory></Inventory>
+          element: <PrivateRoute><Inventory></Inventory></PrivateRoute>
         },
         {
           path: '/shipment',
-          element: <Shipment></Shipment>
+          element: <PrivateRoute><Shipment></Shipment></PrivateRoute>
         },
         {
           path: '/about',
