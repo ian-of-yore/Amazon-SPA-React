@@ -1,6 +1,6 @@
 .form-container {
     width: 500px;
-    height: 600px;
+    height: 580px;
     margin: 40px auto;
     border: 1px solid #95A0A7;
     border-radius: 8px;
@@ -56,4 +56,5 @@
 
 .btn-submit:hover {
     background: rgba(255, 153, 0, 0.8);
+    color: white;
 }

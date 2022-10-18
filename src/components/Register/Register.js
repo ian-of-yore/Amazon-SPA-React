@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
 
 const Register = () => {
     return (
@@ -18,11 +19,14 @@ const Register = () => {
                     <label htmlFor="confirm">Confirm Password</label>
                     <input type="password" name="confirm" required />
                 </div>
-                <input className='btn-submit' type="submit" value="Sign Up" />
+                <input className='btn-submit' type="submit" value="Register" />
             </form>
-            <p className='mt-4 text-center w-10/12'>Already have an account?<button className='underline ml-1'><Link to='/login'>Log In</Link></button></p>
-            <p className='text-error'></p>
-        </div>
+            <p className='mt-4 text-center w-10/12'>Already have an account?<button className='underline ml-1'><Link to='/login'>Login</Link></button></p>
+            <div className=' flex items-center justify-center text-xl mt-12 text-black bg-white p-3 w-[415px] rounded-md border-2 hover:bg-amber-500 hover:text-white'>
+                <FcGoogle className='mr-2'></FcGoogle>
+                <button> Continue With Google</button>
+            </div>
+        </div >
     );
 };
 
