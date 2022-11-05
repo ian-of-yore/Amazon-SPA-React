@@ -43,3 +43,23 @@
     letter-spacing: 0.0015em;
     text-align: left;
 }
+
+.pagination {
+    width: 83%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination button {
+    margin-right: 10px;
+    padding: 0 8px;
+    border: 2px solid black;
+}
+
+.pagination .selected {
+    background-color: black;
+    color: white;
+}

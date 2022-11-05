@@ -10,8 +10,30 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const Shop = () => {
-    const products = useLoaderData();
+    // const { count, products } = useLoaderData();
+    const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
+    /**
+    * Pagination
+    * 01. total Documents count: Loaded from backend
+    * 02. perPageDocuemnt: set an initial value of 10
+    * 03. totalPageCount: calculation done
+    * 04. currentPage: 
+    */
+    const [count, setCount] = useState(0);
+    const [perPageDocuemnt, setPerPageDocument] = useState(10);
+    const [currentPage, setCurrentPage] = useState(0);
+    const totalPage = Math.ceil(count / perPageDocuemnt);
+
+    useEffect(() => {
+        const url = `http://localhost:5000/products?currentPage=${currentPage}&perPageDocument=${perPageDocuemnt}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data.products);
+                setCount(data.count);
+            })
+    }, [currentPage, perPageDocuemnt])
 
     // Collecting storedCart data from the Local Storage and updating the cart
     useEffect(() => {
@@ -69,6 +91,30 @@ const Shop = () => {
                             <p className='fa-icons'><FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></p>
                         </button></Link>
                 </Cart>
+            </div>
+            <div className='pagination'>
+                <div>
+                    <p className='text-xl font-semibold'>Show
+                        <span className='h-10 w-10 ml-1'>
+                            <select onChange={(event) => setPerPageDocument(event.target.value)}>
+                                <option value="5">5</option>
+                                <option value="10" selected>10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                            </select>
+                        </span> items per page</p>
+                </div>
+                <div>
+                    {
+                        [...Array(totalPage).keys()].map(number => <button
+                            key={number}
+                            className={currentPage === number && 'selected'}
+                            onClick={() => setCurrentPage(number)}
+                        >
+                            {number}
+                        </button>)
+                    }
+                </div>
             </div>
         </div>
     );
